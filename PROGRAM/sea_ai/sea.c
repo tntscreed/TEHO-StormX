@@ -27,6 +27,7 @@
 
 #include "battle_interface\BattleInterface.c"
 
+#include "camera.c"
 
 #event_handler("Sea_FirstInit", "Sea_FirstInit");
 #event_handler("SeaLoad_GetPointer", "SeaLoad_GetPointer");
@@ -1168,6 +1169,8 @@ void SeaLogin(ref Login)
 	InitBattleInterface();							ReloadProgressUpdate();
 	StartBattleInterface();							ReloadProgressUpdate();
 	RefreshBattleInterface();						ReloadProgressUpdate();
+
+	SetActiveCamera(SHIP_CAMERA);
 	
 	/*CreateEntity(&SeaOperator, "SEA_OPERATOR");
 	LayerAddObject(SEA_EXECUTE, &SeaOperator, -1);
@@ -1674,7 +1677,6 @@ void Sea_Load()
 	
 	InitBattleInterface();
 	StartBattleInterface();
-	SetActiveCamera(CurrentShipCamera);
 	RefreshBattleInterface();					
 }
 
